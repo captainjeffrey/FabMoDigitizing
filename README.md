@@ -1,4 +1,4 @@
-# FabMo Digitizing & Probing App
+# Digitizing & Probing App for FabMo Machines
 
 A comprehensive digitizing probe application for FabMo-powered CNC machines. Scan, measure, and digitize surfaces and objects with precision using a touch probe.
 
