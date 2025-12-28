@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DESKTOP</title>
+    <!-- Foundation 5.5.3 -->
+    <script src="js/lib/modernizr.js"></script>
+
+    <link rel="stylesheet" href="css/foundation.min.css"> 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="css/tips.css">
+    <link rel="stylesheet" href="css/probeStyle.css">
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="/static/js/libs/fabmo.js"></script>
+
+    <script> let fabmo = new FabMoDashboard(); </script>
+    
+    <script src="js/sb_app.js"></script>
+    <script src="js/motion.js" defer></script>
+    <script src="js/message_g2.js" defer></script>
+    <script src="js/probing.js"></script>
+    <script src="js/probing-ui.js"></script>
+    <script src="js/dxf-export.js"></script>
+
+   
+
+</head>
+
+<body  style="background-color:rgb(151, 150, 150)">
+
+    <div class="container">
+        <h1>🎯 FabMo Probing Routines</h1>
+        <p class="subtitle">Zero your axes and scan surfaces using a digitizing probe</p>
+        
+        <div class="warning-box">
+            <strong>⚠️ IMPORTANT:</strong> Before probing, ensure:
+            <ul style="margin: 10px 0 0 20px;">
+                <li>Probe is either:</li>
+                <ul>
+                    <li>connected to Input #1 (check green light on dashboard)</li>
+                    <li>and the Alligator clip is attached to tool/collet</li>
+                </ul>
+                <li>OR</li>
+                <ul>
+                    <li>a standard NPN Probe is connected to an input</li>
+                </ul>
+                <li>Z-zero plate is positioned correctly</li>
+                <li>Tool has clearance to move safely</li>
+            </ul>
+        </div>
+
+         
+        <!-- Probe Configuration -->
+        <div class="section">
+            <h2>Probe Configuration</h2>
+            <div class="config-grid">
+                <div class="form-group">
+                    <label for="plateThickness">Plate Thickness (inches):</label>
+                    <input type="number" id="plateThickness" value="0.500" step="0.001">
+                </div>
+                <div class="form-group">
+                    <label for="probeSpeed">Probe Speed (in/sec):</label>
+                    <input type="number" id="probeSpeed" value="1.0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="safeZ">Safe Z Height (inches):</label>
+                    <input type="number" id="safeZ" value="0.5" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="retractDistance">Retract Distance (inches):</label>
+                    <input type="number" id="retractDistance" value="0.25" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="inputNumber">Input # (1-8, built-in is on input #1):</label>
+                    <input type="number" id="inputNumber" value="7" step="1" min="1" max="8">
+                </div>
+                <div class="form-group">
+                    <label for="maxProbeDepth">Max Probe Depth (inches):</label>
+                    <input type="number" id="maxProbeDepth" value="-2.0" step="0.1">
+                </div>
+            </div>
+            <button id="saveConfigBtn" class="btn btn-secondary">Save Configuration</button>
+        </div>
+        
+        <!-- Z-Axis Probing -->
+        <div class="section">
+            <h2>Z-Axis Probing</h2>
+            <p>Zero the Z-axis to the top surface of your material.</p>
+            <div class="probe-controls">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Position tool above material</li>
+                    <li>Place Z-zero plate on material and under the tool</li>
+                    <li>Configure the Probe as above</li>
+                    <li>Click "Probe Z-Axis"</li>
+                </ol>
+                <button id="probeZBtn" class="btn probe-button">⬇️ Probe Z-Axis</button>
+                <button id="retrieveZBtn" class="btn btn-secondary">📥 Retrieve Z Data</button>
+            </div>
+        </div>
+
+        <!-- XYZ Corner Probing -->
+        <div class="section">
+            <h2>XYZ Corner Probing</h2>
+            <p>Zero all three axes using a corner block.</p>
+            <div class="probe-controls">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Position corner block on material</li>
+                    <li>Position tool above corner block</li>
+                    <li>Click "Probe XYZ Corner"</li>
+                    <li>Tool will probe Z first, then X, then Y</li>
+                </ol>
+                <div class="form-group">
+                    <label for="cornerBlockSize">Corner Block Size (inches):</label>
+                    <input type="number" id="cornerBlockSize" value="2.0" step="0.1">
+                </div>
+                <button id="probeXYZBtn" class="btn probe-button">📐 Probe XYZ Corner</button>
+            </div>
+        </div>
+
+        <!-- 2D Surface Scanning -->
+        <div class="section">
+            <h2>2D Surface Scanning</h2>
+            <p>Scan a rectangular area to create a height map of the surface.</p>
+            <div class="probe-controls">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Set your X and Y zero at the start corner</li>
+                    <li>Configure scan area and grid spacing below</li>
+                    <li>Click "Scan Surface"</li>
+                </ol>
+                <div class="config-grid">
+                    <div class="form-group">
+                        <label for="scanStartX">Start X (inches):</label>
+                        <input type="number" id="scanStartX" value="0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="scanStartY">Start Y (inches):</label>
+                        <input type="number" id="scanStartY" value="0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="scanEndX">End X (inches):</label>
+                        <input type="number" id="scanEndX" value="2" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="scanEndY">End Y (inches):</label>
+                        <input type="number" id="scanEndY" value="2" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="gridSpacing">Grid Spacing (inches):</label>
+                        <input type="number" id="gridSpacing" value="1.0" step="0.1">
+                    </div>
+                </div>
+                <button id="scanSurfaceBtn" class="btn probe-button">🗺️ Scan Surface</button>
+                <button id="retrieveScanBtn" class="btn btn-secondary">📥 Retrieve Scan Data</button>
+                <button id="exportScanBtn" class="btn btn-secondary" style="display:none;">📊 Export Scan as CSV</button>
+                <button id="exportScanDxfBtn" class="btn btn-secondary" style="display:none;">📐 Export Scan as DXF</button>
+            </div>
+        </div>
+
+         <!-- Rotary Surface Scanning -->
+        <div class="section">
+            <h2>4D Rotary Surface Scanning</h2>
+            <p>Scan cylindrical objects at multiple angles and positions for complete surface mapping.</p>
+            <div class="probe-controls">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Mount cylindrical object on rotary axis</li>
+                    <li>Select which rotary axis you're using (A or B)</li>
+                    <li>Choose scan axis parallel to cylinder</li>
+                    <li>Configure scan parameters below</li>
+                    <li>Click "Scan Rotary Surface"</li>
+                </ol>
+                
+                <div class="config-grid">
+                    <!-- Rotary Axis Selection (First) -->
+                    <div class="form-group">
+                        <label for="rotaryAxis">Rotary Axis:</label>
+                        <select id="rotaryAxis">
+                            <option value="A">A-Axis (4th axis)</option>
+                            <option value="B">B-Axis (5th axis)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Manual Rotary Checkbox -->
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="manualRotary" style="width: auto; margin-right: 8px;">
+                            Manual rotary axis (rotary indexer)
+                        </label>
+                        <small style="display: block; color: #666; margin-top: 5px;">
+                            Check this if you need to manually rotate between angles
+                        </small>
+                    </div>
+                    
+                    <!-- Cylinder Parallel Axis Selection (Second) -->
+                    <div class="form-group">
+                        <label for="parallelAxis">Cylinder Parallel to Axis:</label>
+                        <select id="parallelAxis">
+                            <option value="X">X-Axis</option>
+                            <option value="Y">Y-Axis</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Start/End Position (changes based on parallel axis) -->
+                    <div class="form-group" id="rotaryStartPos">
+                        <label for="rotaryScanStart" id="rotaryScanStartLabel">Start Position (inches):</label>
+                        <input type="number" id="rotaryScanStart" value="0" step="0.1">
+                    </div>
+                    <div class="form-group" id="rotaryEndPos">
+                        <label for="rotaryScanEnd" id="rotaryScanEndLabel">End Position (inches):</label>
+                        <input type="number" id="rotaryScanEnd" value="12" step="0.1">
+                    </div>
+                    
+                    <!-- Grid Spacing -->
+                    <div class="form-group">
+                        <label for="rotaryGridSpacing">Linear Spacing (inches):</label>
+                        <input type="number" id="rotaryGridSpacing" value="1.0" step="0.1">
+                    </div>
+                    
+                    <!-- Angle Steps -->
+                    <div class="form-group">
+                        <label for="rotaryAngleSteps">Angle Steps (degrees):</label>
+                        <input type="number" id="rotaryAngleSteps" value="45" step="15" min="15" max="90">
+                    </div>
+                </div>
+                
+                <button id="scanRotaryBtn" class="btn probe-button">🔄 Scan Rotary Surface</button>
+                <button id="retrieveRotaryBtn" class="btn btn-secondary">📥 Retrieve Rotary Data</button>
+                <button id="exportRotaryBtn" class="btn btn-secondary" style="display:none;">📊 Export Rotary Scan as CSV</button>
+                <button id="exportRotaryDxfBtn" class="btn btn-secondary" style="display:none;">📐 Export Rotary Scan as DXF</button>
+            </div>
+        </div>
+        
+        <!-- Results Display -->
+        <div class="section" id="resultsSection" style="display:none;">
+            <h2>Scan Results</h2>
+            <div class="probe-controls">
+                <div id="resultsStats" class="results-stats"></div>
+                <div id="resultsTable" class="results-table"></div>
+                <canvas id="resultsCanvas" width="600" height="400" style="border: 1px solid #ccc; margin-top: 20px;"></canvas>
+            </div>
+        </div>
+              
+        <div id="status" class="status"></div>
+    </div>
+
+</body>
+</html>

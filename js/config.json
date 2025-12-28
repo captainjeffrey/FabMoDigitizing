@@ -1,0 +1,291 @@
+{
+    "engine": {
+        "server_port": 80,
+        "driver": "g2",
+        "log_level": "info",
+        "upload_dir": "/tmp",
+        "profile": "Handibot 2.0/2.1",
+        "engine_id": "1b92fe27f",
+        "name": "FabMo-1b92fe",
+        "password": "go2fabmo",
+        "platform": "raspberry-pi",
+        "network": {
+            "wifi": {
+                "mode": "ap",
+                "enabled": true,
+                "wifi_networks": [],
+                "default_config": {
+                    "ip_address": "192.168.42.1",
+                    "netmask": "255.255.255.0",
+                    "gateway": "192.168.42.1",
+                    "dns": [
+                        "8.8.8.8"
+                    ]
+                }
+            },
+            "ethernet": {
+                "mode": "magic",
+                "default_config": {
+                    "ip_address": "192.168.44.1",
+                    "netmask": "255.255.255.0",
+                    "gateway": "192.168.44.1",
+                    "dns": [
+                        "8.8.8.8"
+                    ],
+                    "dhcp_range": {
+                        "start": "192.168.44.20",
+                        "end": "192.168.44.254"
+                    }
+                }
+            }
+        },
+        "control_port_linux": "/dev/fabmo_g2_motion",
+        "data_port_linux": "/dev/ttyfabmo_g2_motion",
+        "init": true,
+        "version": "v4.0.97"
+    },
+    "driver": {
+        "gco": 2,
+        "gdi": 0,
+        "si": 100,
+        "gun": 0,
+        "ct": 0.001,
+        "jt": 1.5,
+        "xam": 1,
+        "yam": 1,
+        "zam": 1,
+        "aam": 0,
+        "bam": 0,
+        "cam": 0,
+        "1ma": 0,
+        "2ma": 1,
+        "3ma": 2,
+        "4ma": 3,
+        "5ma": 4,
+        "6ma": 5,
+        "1po": 0,
+        "2po": 0,
+        "3po": 0,
+        "4po": 0,
+        "5po": 0,
+        "6po": 0,
+        "1su": 4000,
+        "2su": 4000,
+        "3su": 4000,
+        "4su": 4000,
+        "5su": 33.33333,
+        "6su": 33.33333,
+        "xfr": 300,
+        "yfr": 300,
+        "zfr": 240,
+        "afr": 240,
+        "bfr": 6000,
+        "cfr": 6000,
+        "g55x": 23.9405,
+        "g55y": 12.05325,
+        "g55z": 161.31071,
+        "g55a": 0,
+        "g55b": 0,
+        "g55c": 0,
+        "g54x": 0,
+        "g54y": 0,
+        "g54z": 0,
+        "g54a": 0,
+        "g54b": 0,
+        "g54c": 0,
+        "di1en": true,
+        "di2en": true,
+        "di3en": true,
+        "di4en": true,
+        "di5en": true,
+        "di6en": true,
+        "di7en": true,
+        "di8en": true,
+        "di9en": true,
+        "di10en": true,
+        "di11en": true,
+        "di12en": true,
+        "di1po": 1,
+        "di2po": 1,
+        "di3po": 1,
+        "di4po": 1,
+        "di5po": 1,
+        "di6po": 1,
+        "di7po": 1,
+        "di8po": 1,
+        "di9po": 1,
+        "di10po": 1,
+        "di11po": 1,
+        "di12po": 1,
+        "xjh": 10000,
+        "yjh": 10000,
+        "zjh": 10000,
+        "ajh": 10000,
+        "bjh": 10000,
+        "cjh": 10000,
+        "spde": 2,
+        "plmo": 3,
+        "out5": 1
+    },
+    "opensbp": {
+        "movexy_speed": 3,
+        "movez_speed": 1,
+        "movea_speed": 1,
+        "moveb_speed": 10,
+        "movec_speed": 10,
+        "jogxy_speed": 5,
+        "jogy_speed": 5,
+        "jogz_speed": 3,
+        "joga_speed": 3,
+        "jogb_speed": 100,
+        "jogc_speed": 100,
+        "xy_maxjerk": 50,
+        "y_maxjerk": 50,
+        "z_maxjerk": 50,
+        "a_maxjerk": 50,
+        "b_maxjerk": 1000,
+        "c_maxjerk": 1000,
+        "cutterDia": 0.25,
+        "pocketOverlap": 50,
+        "safeZpullUp": 0.25,
+        "safeApullUp": 0.25,
+        "variables": {
+            "example_variable": 999,
+            "SPINDLEAUTHORIZED": false,
+            "SB_CURRENT_CUTTER_ZOFFSET": 0.25,
+            "X_BACKOFF": 0.075,
+            "Y_BACKOFF": 0.075,
+            "Z_BACKOFF": 0.075
+        },
+        "transforms": {
+            "rotate": {
+                "apply": false,
+                "angle": 0,
+                "x": 0,
+                "y": 0
+            },
+            "shearx": {
+                "apply": false,
+                "angle": 0
+            },
+            "sheary": {
+                "apply": false,
+                "angle": 0
+            },
+            "scale": {
+                "apply": false,
+                "scalex": 1,
+                "scaley": 1,
+                "scalez": 1,
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "move": {
+                "apply": false,
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "interpolate": {
+                "apply": false
+            },
+            "level": {
+                "apply": false,
+                "ptDataFile": "C:/SbParts/PtData.json"
+            }
+        },
+        "cRes": 0.01,
+        "GblPropX": 1,
+        "GblPropY": 1,
+        "tempVariables": {
+            "XYHOMED": false,
+            "ZHOMED": false,
+            "SAFEZ": 0,
+            "RETRACT": 1.1,
+            "COMPLETE": 0,
+            "KNOWNHEIGHT": 0.027,
+            "SCANDATA": "[{&quot;x&quot;:0,&quot;y&quot;:0,&quot;z&quot;:0.02699,&quot;i&quot;:1},{&quot;x&quot;:1,&quot;y&quot;:0,&quot;z&quot;:0.02949,&quot;i&quot;:2},{&quot;x&quot;:2,&quot;y&quot;:0,&quot;z&quot;:0.03424,&quot;i&quot;:3},{&quot;x&quot;:2,&quot;y&quot;:0.98343,&quot;z&quot;:0.03524,&quot;i&quot;:4},{&quot;x&quot;:1,&quot;y&quot;:1,&quot;z&quot;:0.03199,&quot;i&quot;:5},{&quot;x&quot;:0,&quot;y&quot;:1,&quot;z&quot;:0.02599,&quot;i&quot;:6},{&quot;x&quot;:0,&quot;y&quot;:1.99999,&quot;z&quot;:0.02699,&quot;i&quot;:7},{&quot;x&quot;:1,&quot;y&quot;:2,&quot;z&quot;:0.03174,&quot;i&quot;:8},{&quot;x&quot;:1.99999,&quot;y&quot;:2,&quot;z&quot;:0.03349,&quot;i&quot;:9}]",
+            "RETRACTBACK": 0,
+            "CYLINDERRADIUS": ".3",
+            "ROTARYDATA": "[{&quot;x&quot;:0,&quot;y&quot;:0,&quot;z&quot;:0.3,&quot;a&quot;:undefined,&quot;b&quot;:undefined,&quot;i&quot;:1}",
+            "PROBEDATA": "{&quot;probeZ&quot;:0.02726,&quot;complete&quot;:1}",
+            "TOTALPOINTS": 9,
+            "SCANCOMPLETE": 1
+        }
+    },
+    "machine": {
+        "units": "in",
+        "time_units": "s",
+        "last_units": "in",
+        "quit_input": 0,
+        "auth_timeout": 30,
+        "auth_required": false,
+        "auth_input": 5,
+        "ap_input": 0,
+        "ap_time": 8,
+        "di1ac": "none",
+        "di2ac": "none",
+        "di3ac": "none",
+        "di4ac": "stop",
+        "di5ac": "none",
+        "di6ac": "none",
+        "di7ac": "none",
+        "di8ac": "none",
+        "di9ac": "none",
+        "di10ac": "none",
+        "di11ac": "none",
+        "di12ac": "none",
+        "default_app": "fabmo-sb4",
+        "envelope": {
+            "xmin": 0,
+            "xmax": 6,
+            "ymin": 0,
+            "ymax": 8,
+            "zmin": -2,
+            "zmax": 6
+        },
+        "manual": {
+            "xy_speed": 2,
+            "xy_min": 0.1,
+            "xy_max": 6,
+            "z_fast_speed": 1,
+            "z_slow_speed": 0.1,
+            "xy_increment": 0.05,
+            "z_increment": 0.005,
+            "abc_increment": 1,
+            "xy_jerk": 75,
+            "z_jerk": 50,
+            "z_speed": 0
+        },
+        "limits_on": false,
+        "softlimits_on": false
+    },
+    "profiles": {
+        "Default": {
+            "name": "Default",
+            "description": "Default for when no defined tool",
+            "dir": "/opt/fabmo/profiles/default"
+        },
+        "ShopBot Desktop": {
+            "name": "ShopBot Desktop",
+            "description": "The ShopBot DT2418 tool",
+            "dir": "/opt/fabmo/profiles/fabmo-profile-dt"
+        },
+        "ShopBot Desktop ATC": {
+            "name": "ShopBot Desktop ATC",
+            "description": "The ShopBot Desktop DT3624 Automatic Tool Changer",
+            "dir": "/opt/fabmo/profiles/fabmo-profile-dtatc"
+        },
+        "ShopBot Desktop MAX": {
+            "name": "ShopBot Desktop MAX",
+            "description": "The ShopBot DT3624 tool",
+            "dir": "/opt/fabmo/profiles/fabmo-profile-dtmax"
+        },
+        "Handibot 2.0/2.1": {
+            "name": "Handibot 2.0/2.1",
+            "description": "The ShopBot Handibot Adventure Edition",
+            "dir": "/opt/fabmo/profiles/fabmo-profile-handibot-2"
+        }
+    }
+}
